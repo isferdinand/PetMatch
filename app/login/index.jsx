@@ -1,9 +1,9 @@
-import { View, Text, Image, Pressable, Link } from 'react-native'
-import React, {useCallback} from 'react'
-import Colors from '../../constants/Colors'
-import * as WebBrowser from 'expo-web-browser'
 import { useOAuth } from '@clerk/clerk-expo'
 import * as Linking from 'expo-linking'
+import * as WebBrowser from 'expo-web-browser'
+import React, { useCallback } from 'react'
+import { Image, Pressable, Text, View } from 'react-native'
+import Colors from '../../constants/Colors'
 
 export const useWarmUpBrowser = () => {
   React.useEffect(() => {
@@ -30,8 +30,8 @@ export default function Login() {
       })
 
       if (createdSessionId) {
-        
-      } else {
+         // Handle successful sign-in
+    } else {
         // Use signIn or signUp for next steps such as MFA
       }
     } catch (err) {
@@ -97,7 +97,7 @@ export default function Login() {
          >Get Started</Text>
         </Pressable>
       </View>
-      {/* <Link>yes</Link> */}
+
     </View>
   )
 }
