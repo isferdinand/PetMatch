@@ -77,12 +77,12 @@ export default function AddNewPet() {
         setLoader(true)
         const response = await fetch(image);
         const blobImage = await response.blob();
-        const storageRef = ref(storage, 'images/' + Date.now() + '.jpg');
+        const storageRef = ref(storage, '/PetAdopt/' + Date.now() + '.jpg');
         
         uploadBytes(storageRef, blobImage).then((snapshot) => {
             console.log('File Uploaded');
         }).then(resp => {
-            getDownloadURL(storageRef).then((downloadUrl) => {
+            getDownloadURL(storageRef).then(async(downloadUrl) => {
                 console.log(downloadUrl)
                 SaveFormData(downloadUrl)
             } )
